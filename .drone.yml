@@ -1,6 +1,6 @@
 pipeline:
     build:
-        image: java
+        image: maven:3.3.9-java-8
         environment:
            - CATALINA_HOME=/opt/apache-tomcat-8/apache-tomcat-8.5.6
            - JAVA_HOME=/usr/lib/jvm/default-java
