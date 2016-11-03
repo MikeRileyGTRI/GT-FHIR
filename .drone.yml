@@ -7,10 +7,14 @@ pipeline:
            - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/games:/snap/bin
         commands:
           #We have to cd into each subdirectory: jpabase entities overlay webapp
-           - mvn clean install entities
-           - mvn clean install jpabase
-           - mvn clean install overlay
-           - mvn clean install webapp
+           - cd gt-fhir-entities
+           - mvn clean install
+           - cd ../gt-fhir-jpabase
+           - mvn clean install
+           - cd ../gt-fhir-overlay
+           - mvn clean install
+           - cd ../gt-fhir-webapp
+           - mvn clean install
            - GT-FHIRPostInstallTest.sh localhost 8080
 services:
     # authentication:
