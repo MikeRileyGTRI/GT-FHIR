@@ -8,8 +8,8 @@ pipeline:
         commands:
           #We have to cd into each subdirectory: jpabase entities overlay webapp
            - java -version
-           - mvn -version
            - echo $JAVA_HOME
+           - mvn -version
            - cd gt-fhir-entities
            - mvn clean install
            - cd ../gt-fhir-jpabase
