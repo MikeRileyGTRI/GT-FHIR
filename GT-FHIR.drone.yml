@@ -1,0 +1,23 @@
+pipeline:
+    build:
+        image: java
+        environment:
+           - CATALINA_HOME=/opt/apache-tomcat-8/apache-tomcat-8.5.6
+           - JAVA_HOME=/usr/lib/jvm/default-java
+           - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/games:/snap/bin
+        commands:
+          #We have to cd into each subdirectory: jpabase entities overlay webapp
+           - maven clean install entities
+           - maven clean install jpabase
+           - maven clean install overlay
+           - maven clean install webapp
+           - GT-FHIRPostInstallTest.sh localhost 8080
+services:
+    # authentication:
+    #    image: openid-mitr
+    db:
+         image: postgres
+         environment:
+          - POSTGRES_USER=omop_v5
+          - POSTGRES_PASSWORD=i3lworks
+          - POSTGRES_DATABASE=postgres
