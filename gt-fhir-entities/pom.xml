@@ -15,6 +15,7 @@
 			<id>oss-snapshots</id>
 			<snapshots>
 				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
 			</snapshots>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 		</repository>
