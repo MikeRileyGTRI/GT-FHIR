@@ -13,6 +13,7 @@ pipeline:
            - java -version
            - echo $JAVA_HOME
            - mvn -version -X
+	   - mvn clean install -U -X -DskipTests
           #We have to cd into each subdirectory: jpabase entities overlay webapp
            - cd gt-fhir-jpabase
            - mvn clean install -U -X -DskipTests
